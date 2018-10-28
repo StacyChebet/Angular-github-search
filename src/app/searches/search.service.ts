@@ -23,6 +23,43 @@ export class SearchService {
     this.userError = false;
   }
 
+  githubUser(findName) {
+    interface ApiResponse {
+     username: string;
+     repositories: number;
+     date_created: Date;
+     followers: number;
+     following: number;
+    }
+    const myPromise = new Promise (resolve, reject); =>){
+      // tslint:disable-next-line:max-line-length
+      this.http.get<ApiResponse>('http://api,github.com/users/' + findName + '?access_token=' + this.myApi).toPromise().then(getRepoResponse => {
+        this.newRepository = getRepositoryResponse;
+        resolve();
+     }, error => {
+       reject(error);
+     });
+    })
+    return myPromise;
+  }
+
+  githubRepository(findName, toShow) {
+    interface ApiResponse {
+      items: any;
+    }
+    const promise = new Promise((resolve, reject) => {
+      this.http.get<ApiResponse>('https://api.github.com/search/repositories?q=' + searchName + '&per_page=' + toShow + '&sort=forks&order=asc?access_token=' + this.myApi).toPromise().then(getRepoResponse => {
+        this.searchRepository = getRepoResponse.items;
+        resolve();
+      }, error => {
+        this.searchRepository = 'error';
+        reject(error);
+      });
+    });
+    return promise;
+  }
+}
+
 
 
 

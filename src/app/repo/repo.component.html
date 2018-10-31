@@ -10,4 +10,56 @@
 
 
 
-  
+  <div *ngIf="profile">
+
+    <h3 style="color:white;">{{profile.name}}</h3>
+    <h3>Github Name: {{profile.login}}</h3>
+
+      <h5>{{profile.bio}}</h5>
+      <h5>{{profile.email}}</h5>
+
+
+    <div class="container cont1">
+      <div class="row">
+        <div class="col-md-6">
+
+          <img src= "{{profile.avatar_url}}"  alt="Display photo">
+
+
+
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-4 col-lg-3">
+              <h3 >Repos</h3>
+              <br>
+              <b class="num">{{profile.public_repos}}</b>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+              <h3  >Followers</h3>
+              <br>
+              <b class="num">{{profile.followers}}</b>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+              <h3  >Following</h3>
+              <br>
+              <b class="num">{{profile.following}}</b>
+            </div>
+
+            <a href="{{profile.html_url}}" class="btn btn-outline-danger btnview" >View on Github</a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+

@@ -63,3 +63,25 @@
 
 
 
+
+    <h2 class="panel-title" class="repo">REPOSITORIES</h2>
+
+    <div class="card panel-body" *ngFor="let repo of repo" index=i>
+
+      <h3> {{repo.name}} </h3>
+      <hr>
+      <br>
+      <p> {{repo.description}} </p>
+      <p>Date created: <b>{{repo.created_at|date}}</b>
+      </p>
+      <p>Fork status: <b>{{repo.fork}}</b></p>
+          <p>Forks: <b>{{repo.forks}}</b></p>
+      <a href="{{repo.html_url}}" class="btn btn-sm btn-outline-primary" >View this project</a>
+      <a href="{{repo.homepage}}"  *ngIf="repo.homepage" class="btn btn-sm btn-success">View Live Page</a>
+      <br>
+      <br>
+        </div>
+
+
+    </div>
+    </div>
